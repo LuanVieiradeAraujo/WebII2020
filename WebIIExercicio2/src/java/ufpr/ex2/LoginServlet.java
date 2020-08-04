@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-@WebServlet(urlPatterns = {"/loginServlet1"})
+@WebServlet(urlPatterns = {"/loginServlet"})
 public class LoginServlet extends HttpServlet {
 
     /**
@@ -42,19 +42,19 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");            
+            out.println("<title>Login Servlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
             if(login.equals(senha)){
-                response.sendRedirect("PortalServlet");
+                out.println("Usuario logado com sucesso");
+                out.println("<a href='http://localhost:8080/WebIIExercicio2/PortalServlet'>Ir para PortalServlet</a>");
             }
             else{
-                response.sendRedirect("index.html");
+                out.println("Usuario/senha nao encontrado");
+                out.println("<a href='http://localhost:8080/WebIIExercicio2/index.html'>Ir para Index</a>");
             }
             out.println("</body>");
             out.println("</html>");
-            out.println("<a href=\"index.html\">Ir para o index</a><br>");
         }
     }
 

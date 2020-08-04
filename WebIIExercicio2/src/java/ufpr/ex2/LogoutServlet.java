@@ -22,7 +22,7 @@ public class LogoutServlet extends HttpServlet {
             out.println("<title>Servlet LogoutServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Usuário deslogado");
+            out.println("<h1>Usuário deslogado</h1><br>");
             out.println("<a href=\"index.html\">Ir para o index</a><br>");
             out.println("</body>");
             out.println("</html>");

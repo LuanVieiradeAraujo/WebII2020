@@ -40,7 +40,7 @@ public class PortalServlet extends HttpServlet {
             out.println("<input type=\"text\" name=\"nome\" value=\"\" placeholder=\"nome\">");
             out.println("<input type=\"text\" name=\"login\" value=\"\" placeholder=\"login\">");
             out.println("<input type=\"text\" name=\"senha\" value=\"\" placeholder=\"senha\">");
-            out.println("<input type=\"submit\" value=\"ok\">");
+            out.println("<input type=\"submit\" value=\"Submit\">");
             out.println("<table>");
             
             out.println("<th colspan=3>Usuarios</th>");
@@ -65,6 +65,7 @@ public class PortalServlet extends HttpServlet {
                 out.println("</tr>");
             }
             out.println("</table>");
+            out.println("<a href='http://localhost:8080/WebIIExercicio2/LogoutServlet'>Logout Servlet</a>");
             out.println("</body>");
             out.println("</html>");
         }

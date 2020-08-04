@@ -1,4 +1,4 @@
-package ufpr.ex3;
+package com.ufpr.tads.web2.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,35 +7,28 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = {"/LogoutServlet"})
-public class LogoutServlet extends HttpServlet {
-
+@WebServlet(name = "ErroServlet", urlPatterns = {"/ErroServlet"})
+public class ErroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        HttpSession session = request.getSession(false);
-        if (session == null) {
-            response.sendRedirect(request.getContextPath() + "/");
-            return;
-        }
+        String errMsg = (String)request.getAttribute("errMsg");
+        String page = (String)request.getAttribute("page");
         
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LogoutServlet</title>");            
+            out.println("<title>Erro Servlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Usuário deslogado</h1><br>");
-            out.println("<a href=\"index.html\">Ir para o index</a><br>");
+            out.println("<h1>" + errMsg + "</h1>");
+            out.println("<a href=\"" + page + "/\" class=\"underline-hover\">Voltar para login</a>");
             out.println("</body>");
             out.println("</html>");
         }
-		session.invalidate();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

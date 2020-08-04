@@ -1,4 +1,4 @@
-package ufpr.ex3;
+package com.ufpr.tads.web2.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,7 +35,7 @@ public class LogoutServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         }
-		session.invalidate();
+        session.invalidate();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

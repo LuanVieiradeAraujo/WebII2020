@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
         
         request.setAttribute("msg", "Dados de login inválidos.");
         request.setAttribute("page", request.getContextPath() + "/");
-        request.getRequestDispatcher("erro.jsp").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

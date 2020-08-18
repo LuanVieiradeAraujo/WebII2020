@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public abstract class ConnectionFactory {
 
-    private static final String PROPS_FILE = "/com/ufpr/tads/web2/dao/db.properties";
+    private static final String PROPS_FILE = "/com/mycompany/webiiexercicio5/dao/db.properties";
 
     public static Connection getConnection() {
         try {

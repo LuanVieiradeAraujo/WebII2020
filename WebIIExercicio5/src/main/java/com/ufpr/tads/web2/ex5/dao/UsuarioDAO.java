@@ -1,4 +1,4 @@
-package com.mycompany.webiiexercicio5.dao;
+package com.ufpr.tads.web2.ex5.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import com.mycompany.webiiexercicio5.beans.Usuario;
+import com.ufpr.tads.web2.ex5.beans.Usuario;
 
 public abstract class UsuarioDAO {
 

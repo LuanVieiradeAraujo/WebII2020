@@ -1,4 +1,4 @@
-package com.mycompany.webiiexercicio5.beans;
+package com.ufpr.tads.web2.ex5.beans;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.mycompany.webiiexercicio5.dao;
+package com.ufpr.tads.web2.ex5.dao;
 
 import java.io.IOException;
 import java.sql.Connection;

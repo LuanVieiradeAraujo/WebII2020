@@ -1,4 +1,4 @@
-package com.mycompany.webiiexercicio5.resources;
+package com.ufpr.tads.web2.ex5.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

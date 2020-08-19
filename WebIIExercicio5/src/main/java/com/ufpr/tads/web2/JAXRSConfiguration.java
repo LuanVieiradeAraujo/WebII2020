@@ -1,4 +1,4 @@
-package com.mycompany.webiiexercicio5;
+package com.ufpr.tads.web2;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

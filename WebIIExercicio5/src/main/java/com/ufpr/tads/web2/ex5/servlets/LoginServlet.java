@@ -1,8 +1,8 @@
-package com.mycompany.webiiexercicio5.servlets;
+package com.ufpr.tads.web2.ex5.servlets;
 
-import com.mycompany.webiiexercicio5.beans.LoginBean;
-import com.mycompany.webiiexercicio5.beans.Usuario;
-import com.mycompany.webiiexercicio5.dao.UsuarioDAO;
+import com.ufpr.tads.web2.ex5.beans.LoginBean;
+import com.ufpr.tads.web2.ex5.beans.Usuario;
+import com.ufpr.tads.web2.ex5.dao.UsuarioDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;

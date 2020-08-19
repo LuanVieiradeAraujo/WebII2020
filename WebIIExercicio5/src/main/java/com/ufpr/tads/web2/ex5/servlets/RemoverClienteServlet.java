@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.webiiexercicio5.servlets;
+package com.ufpr.tads.web2.ex5.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,8 +13,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ClienteServlet", urlPatterns = {"/CadastraServlet"})
-public class ClienteServlet extends HttpServlet {
+/**
+ *
+ * @author User
+ */
+@WebServlet(name = "RemoverClienteServlet", urlPatterns = {"/RemoverClienteServlet"})
+public class RemoverClienteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,10 +37,10 @@ public class ClienteServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastraServlet</title>");            
+            out.println("<title>Servlet RemoverClienteServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CadastraServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RemoverClienteServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

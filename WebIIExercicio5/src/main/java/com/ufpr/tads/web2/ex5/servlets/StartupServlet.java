@@ -1,6 +1,6 @@
-package com.mycompany.webiiexercicio5.servlets;
+package com.ufpr.tads.web2.ex5.servlets;
 
-import com.mycompany.webiiexercicio5.beans.ConfigBean;
+import com.ufpr.tads.web2.ex5.beans.ConfigBean;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

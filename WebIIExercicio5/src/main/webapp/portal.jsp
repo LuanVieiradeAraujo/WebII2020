@@ -5,7 +5,7 @@
 --%>
 
     <%
-        if (request.getSession() != null){
+        if (request.getSession(false) != null){
                 request.setAttribute("msg", "Usuário deve se autenticar para acessar o sistema.");
                 request.setAttribute("page", request.getContextPath() + "/");
                 request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -23,7 +23,7 @@
     <body>
         <h1>Hello World!</h1>
         
-<jsp:useBean id="loginBean" class="com.mycompany.webiiexercicio5.beans.LoginBean"></jsp:useBean>
+<jsp:useBean id="loginBean" class="com.ufpr.tads.web2.ex5.beans.LoginBean"></jsp:useBean>
 <jsp:getProperty property="loginBean" name="nomeUsuario"/><br> 
 
 <a href='localhost:8080/WebIIExercicio5/ClienteServlet'>Cliente</a>

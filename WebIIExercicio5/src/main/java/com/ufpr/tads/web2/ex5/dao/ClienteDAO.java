@@ -1,6 +1,7 @@
 package com.ufpr.tads.web2.ex5.dao;
 
 import com.ufpr.tads.web2.ex5.beans.Cliente;
+import com.ufpr.tads.web2.ex5.beans.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import com.ufpr.tads.web2.ex5.beans.Usuario;
 
 public abstract class ClienteDAO {
 
@@ -35,16 +35,27 @@ public abstract class ClienteDAO {
         }
     }
 
-    public static boolean verifyIfExist(String login) {
+    public static boolean getCliente(String idCliente) {     
         try (Connection conn = ConnectionFactory.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(
-                "SELECT id_cliente FROM " + TABELA + " WHERE login_cliente = ?;"
+                "SELECT id_cliente, cpf_cliente, nome_cliente, email_cliente FROM " + TABELA
+                + " WHERE id_cliente = ?;"
             );
-            stmt.setString(1, login.toUpperCase());
+            stmt.setString(1, idCliente);
+            
             ResultSet rs = stmt.executeQuery();
-            return rs.next();
+            if (rs.next()) {
+                return new Cliente(
+                        rs.getInt("id_cliente");
+                        rs.getString("cpf_cliente");
+                        rs.getString("nome_cliente");
+                        rs.getString("email_cliente");
+                );                
+            }
+            return null;
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());
         }
     }
-}
+    }
+    

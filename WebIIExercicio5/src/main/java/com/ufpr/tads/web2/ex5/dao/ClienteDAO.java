@@ -1,88 +1,50 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.ufpr.tads.web2.ex5.dao;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.ufpr.tads.web2.ex5.beans.Cliente;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import com.ufpr.tads.web2.ex5.beans.Usuario;
 
-/**
- *
- * @author User
- */
-@WebServlet(name = "ClienteDAO", urlPatterns = {"/ClienteDAO"})
-public class ClienteDAO extends HttpServlet {
+public abstract class ClienteDAO {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ClienteDAO</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ClienteDAO at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+    private static final String TABELA = "tb_clientes";
+
+    public static List<Cliente> list() {
+        try (Connection conn = ConnectionFactory.getConnection()) {
+            List<Cliente> clientes = new ArrayList<>();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(
+                "SELECT id_cliente, nome_cliente, login_cliente, senha_cliente FROM " + TABELA + ";"
+            );
+            while (rs.next()) {
+                clientes.add(new Cliente(
+                    rs.getInt("id_cliente"),
+                    rs.getString("nome_cliente"),
+                    rs.getString("login_cliente"),
+                    rs.getString("senha_cliente")
+                ));
+            }
+            return clientes;
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    public static boolean verifyIfExist(String login) {
+        try (Connection conn = ConnectionFactory.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(
+                "SELECT id_cliente FROM " + TABELA + " WHERE login_cliente = ?;"
+            );
+            stmt.setString(1, login.toUpperCase());
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

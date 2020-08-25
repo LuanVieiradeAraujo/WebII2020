@@ -5,7 +5,7 @@
 --%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page errorPage="erro.jsp" %>
+<%@page errorPage="erro.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html >
   <head>
@@ -57,7 +57,9 @@
                         		<div class="form-top-center">
                                             
                         			<h3 style="text-align: center">Entre</h3>
-                                                <p style="color: red;"><jsp:getAtributte name="msg" scope="request"/></p>
+                                                <p style="color: red">                                                    
+                                                    <%= (String)request.getAttribute("msg") %>                                                
+                                                </p>
                         		</div>
                         		
                                     

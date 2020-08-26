@@ -46,9 +46,7 @@
             <div class="inner-bg">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                           
-                           
+                        <div class="col-sm-8 col-sm-offset-2 text">    
                         </div>
                     </div>
                     <div class="row">
@@ -57,12 +55,12 @@
                         		<div class="form-top-center">
                                             
                         			<h3 style="text-align: center">Entre</h3>
-                                                <p style="color: red">                                                    
-                                                    <%= (String)request.getAttribute("msg") %>                                                
+                                                <p style="color: red">
+                                                    <%= 
+                                                        (String)request.getAttribute("msg") 
+                                                    %>                                            
                                                 </p>
                         		</div>
-                        		
-                                    
                             </div>
                             <div class="form-bottom">
 			                    <form role="form" action="LoginServlet" method="post" class="login-form">
